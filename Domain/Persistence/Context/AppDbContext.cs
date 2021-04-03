@@ -44,11 +44,6 @@ namespace GoingTo_API.Domain.Persistence.Context
         public DbSet<PlanUser> PlanUsers { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseMySQL("server=localhost;database=library;user=user;password=password");
-        //}
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
