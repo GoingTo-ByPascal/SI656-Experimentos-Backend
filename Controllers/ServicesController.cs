@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/services")]
+    [Route("/api/[controller]")]
     public class ServicesController : Controller
     {
         private readonly IServiceService _serviceService;

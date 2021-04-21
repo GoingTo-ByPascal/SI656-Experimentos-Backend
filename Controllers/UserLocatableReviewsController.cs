@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/user/{userProfileId}/locatable/{locatableId}/reviews")]
+    [Route("/api/Users/{userProfileId}/Locatables/{locatableId}/Reviews")]
     public class UserLocatableReviewsController:Controller
     {
         private readonly IReviewService _reviewService;

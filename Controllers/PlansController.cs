@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/plans")]
+    [Route("/api/[controller]")]
     public class PlansController : Controller
     {
         private readonly IPlanService _planService;

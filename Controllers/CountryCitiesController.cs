@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace GoingTo_API.Controllers
 {
     
-    [Route("/api/countries/{countryId}/cities")]
+    [Route("/api/Countries/{countryId}/Cities")]
     [Produces("application/json")]
     public class CountryCitiesController : Controller
     {

@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/locatable/{locatableId}/promos")]
+    [Route("/api/Locatables/{locatableId}/Promos")]
     public class LocatablePromosController : Controller
     {
         private readonly IPromoService _promoService;

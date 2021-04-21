@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/place/{placeId}/categories")]
+    [Route("/api/Places/{placeId}/Categories")]
     public class PlaceCategoriesController : Controller
     {
         private readonly ICategoryService _categoryService;
