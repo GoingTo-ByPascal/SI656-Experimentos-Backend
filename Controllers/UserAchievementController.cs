@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/users/{userId}/achievements")]
+    [Route("/api/Users/{userId}/Achievements")]
     [Produces("application/json")]
     public class UserAchievementController : Controller
     {

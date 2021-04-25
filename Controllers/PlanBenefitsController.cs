@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route ("/api/plan/{planId}/benefits")]
+    [Route ("/api/Plans/{planId}/Benefits")]
     public class PlanBenefitsController : Controller
     {
         private readonly IPlanBenefitService _planBenefitService;

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/userprofile/{userProfileId}/reviews")]
+    [Route("/api/Userprofiles/{userProfileId}/Reviews")]
     [Produces("application/json")]
     public class UserReviewsController : Controller
     {
