@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/estate/{estateId}/reviews")]
+    [Route("/api/Estates/{estateId}/Reviews")]
     public class EstateReviewsController : Controller 
     {
         private readonly IReviewService _reviewService;

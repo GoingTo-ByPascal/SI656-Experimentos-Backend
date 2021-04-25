@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/users/{userId}/locatables")]
+    [Route("/api/Users/{userId}/Locatables")]
     [Produces("application/json")]
     public class FavouritesController : Controller
     {

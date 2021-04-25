@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/users/{userProfileId}/locatables/{locatableId}/tips")]
+    [Route("/api/Users/{userProfileId}/Locatables/{locatableId}/Tips")]
     [Produces("application/json")]
     public class UserLocatablesTipsController : Controller
     {

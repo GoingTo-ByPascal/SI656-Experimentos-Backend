@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route ("/api/partners")]
+    [Route("/api/[controller]")]
     public class PartnersController : Controller
     {
         private readonly IPartnerService _partnerService;

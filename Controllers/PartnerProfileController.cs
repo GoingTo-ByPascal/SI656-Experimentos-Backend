@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route ("/api/PartnerProfile")]
+    [Route("/api/[controller]")]
     public class PartnerProfileController : Controller
     {
         private readonly IPartnerProfileService _partnerProfileService;

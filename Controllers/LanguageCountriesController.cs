@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Controllers
 {
-    [Route("/api/language/{languageId}/countries")]
+    [Route("/api/Languages/{languageId}/Countries")]
     public class LanguageCountriesController : Controller
     {
         private readonly ICountryService _countryService;
