@@ -15,6 +15,9 @@ namespace GoingTo_API.Resources
         [MaxLength(45)]
         public string Name { get; set; }
         [Required]
+        [MaxLength(100)]
+        public string Image { get; set; }
+        [Required]
         public int LocatableId { get; set; }
     }
 }
