@@ -9,6 +9,7 @@ namespace GoingTo_API.Domain.Models
         public string ShortName { get; set; }
         public string FullName { get; set; }
 
+        public string Image { get; set; }
         public int LocatableId { get; set; }
         public Locatable Locatable { get; set; }
         public IList<UserProfile> Profiles { get; set; } = new List<UserProfile>();
