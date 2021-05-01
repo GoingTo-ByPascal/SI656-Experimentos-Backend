@@ -37,7 +37,7 @@ namespace GoingTo_API.Controllers
         /// <summary>
         /// returns a country by searching name
         /// </summary>
-        /// <param name="name" example="PeRu">the country id</param>
+        /// <param name="name" example="Peru">the country name</param>
         /// <returns></returns>
         [HttpGet("{name}")]
         public async Task<IActionResult> GetByIdAsync(string name)

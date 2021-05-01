@@ -9,6 +9,7 @@ namespace GoingTo_API.Resources
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Image { get; set; }
         public LocatableResource Locatable { get; set; }
         public CountryResource Country { get; set; }
 
