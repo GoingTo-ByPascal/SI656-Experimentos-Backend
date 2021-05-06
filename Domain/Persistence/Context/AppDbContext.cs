@@ -78,7 +78,7 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<City>().HasKey(p => p.Id);
             builder.Entity<City>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<City>().Property(p => p.Name).IsRequired().HasMaxLength(30);
-            builder.Entity<City>().Property(p => p.Image).IsRequired().HasMaxLength(100);
+            builder.Entity<City>().Property(p => p.Image).IsRequired().HasMaxLength(255);
             builder.Entity<City>().Property(p => p.CountryId).IsRequired();
             builder.Entity<City>().Property(p => p.LocatableId).IsRequired();
             builder.Entity<City>()
@@ -93,7 +93,7 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<Country>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Country>().Property(p => p.ShortName).IsRequired().HasMaxLength(3);
             builder.Entity<Country>().Property(p => p.FullName).IsRequired().HasMaxLength(100);
-            builder.Entity<Country>().Property(p => p.Image).IsRequired().HasMaxLength(100);
+            builder.Entity<Country>().Property(p => p.Image).IsRequired().HasMaxLength(255);
             builder.Entity<Country>().Property(p => p.LocatableId).IsRequired();
             builder.Entity<Country>()
                 .HasMany(p => p.Cities)
@@ -289,7 +289,7 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<Place>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Place>().Property(p => p.CityId).IsRequired();
             builder.Entity<Place>().Property(p => p.Name).IsRequired().HasMaxLength(45);
-            builder.Entity<Place>().Property(p => p.Image).IsRequired().HasMaxLength(100);
+            builder.Entity<Place>().Property(p => p.Image).IsRequired().HasMaxLength(255);
             builder.Entity<Place>().Property(p => p.Stars);
             builder.Entity<Place>().Property(p => p.LocatableId).IsRequired();
 

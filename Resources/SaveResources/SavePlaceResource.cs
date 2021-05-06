@@ -12,7 +12,7 @@ namespace GoingTo_API.Resources
         [Required]
         public int CityId { get; set; }
         [Required]
-        [MaxLength(45)]
+        [MaxLength(255)]
         public string Name { get; set; }
         [Required]
         [MaxLength(100)]
