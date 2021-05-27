@@ -12,6 +12,7 @@ namespace GoingTo_API.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Locatable, LocatableResource>();
+            CreateMap<LocatableImage, LocatableImageResource>();
             CreateMap<User, UserResource>();
             CreateMap<Wallet, WalletResource>();
             CreateMap<Achievement, AchievementResource>();

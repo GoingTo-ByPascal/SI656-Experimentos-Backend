@@ -19,7 +19,6 @@ namespace GoingTo_API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ILocatableService _locatableService;
-
         public LocatablesController(ILocatableService locatableService, IMapper mapper)
         {
             _mapper = mapper;
