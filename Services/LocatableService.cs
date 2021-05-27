@@ -73,7 +73,7 @@ namespace GoingTo_API.Services
             }
             catch(Exception ex)
             {
-                return new LocatableResponse($"An error ocurred while removing category: {ex.Message}");
+                return new LocatableResponse($"An error ocurred while removing locatable: {ex.Message}");
             }
         }
 

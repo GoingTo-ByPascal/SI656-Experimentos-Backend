@@ -18,12 +18,15 @@ namespace GoingTo_API.Persistence
         }
         public async Task<Locatable> FindById(int id)
         {
-            return await _context.Locatables.FindAsync(id);
+            return await _context.Locatables
+                .Where(p => p.Id == id)
+                .Include(p => p.LocatableImages)
+                .FirstAsync();
         }
 
         public async Task<IEnumerable<Locatable>> ListAsync()
         {
-            return await _context.Locatables.ToListAsync();
+            return await _context.Locatables.Include(p=>p.LocatableImages).ToListAsync();
         }
 
         public void Remove(Locatable locatable)

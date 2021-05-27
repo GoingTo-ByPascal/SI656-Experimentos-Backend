@@ -17,7 +17,7 @@ namespace GoingTo_API.Persistence.Repositories
         {
             return await _context.Countries
                 .Where(p => p.Id == id)
-                .Include(p => p.Locatable)
+                .Include(p => p.Locatable.LocatableImages)
                 .FirstAsync();
         }
 
@@ -32,7 +32,7 @@ namespace GoingTo_API.Persistence.Repositories
         }
         public async Task<IEnumerable<Country>> ListAsync()
         {
-           return await _context.Countries.Include(p => p.Locatable).ToListAsync();
+           return await _context.Countries.Include(p => p.Locatable.LocatableImages).ToListAsync();
         }
 
         public async Task<Country> ListByLocatableIdAsync(int locatableId) =>

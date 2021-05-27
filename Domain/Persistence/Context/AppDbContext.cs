@@ -26,6 +26,7 @@ namespace GoingTo_API.Domain.Persistence.Context
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Locatable> Locatables { get; set; }
+        public DbSet<LocatableImage> LocatableImages { get; set; }
         public DbSet<LocatableType> LocatableTypes { get; set; }
         public DbSet<LocatablePromo> LocatablePromos { get; set; } 
         public DbSet<Partner> Partners { get; set; }
@@ -194,6 +195,8 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<Locatable>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Locatable>().Property(p => p.Address).IsRequired().HasMaxLength(45);
             builder.Entity<Locatable>().Property(p => p.Description).HasMaxLength(100);
+            builder.Entity<Locatable>().Property(p => p.Name).HasMaxLength(500);
+            builder.Entity<Locatable>().Property(p => p.BannerImage).HasMaxLength(500);
             builder.Entity<Locatable>().Property(p => p.Latitude);
             builder.Entity<Locatable>().Property(p => p.Longitude);
 
@@ -231,6 +234,17 @@ namespace GoingTo_API.Domain.Persistence.Context
                 .HasOne(p => p.Estate)
                 .WithOne(p => p.Locatable)
                 .HasForeignKey<Estate>(p => p.LocatableId);
+
+            builder.Entity<Locatable>()
+                .HasMany(p => p.LocatableImages)
+                .WithOne(p => p.Locatable)
+                .HasForeignKey(p => p.LocatableId);
+
+            //LocatablePromo Entity
+
+            builder.Entity<LocatableImage>().ToTable("LocatableImages");
+            builder.Entity<LocatableImage>().HasKey(p => new { p.Id, p.LocatableId });
+            builder.Entity<LocatableImage>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
 
 
             //LocatableType Entity
