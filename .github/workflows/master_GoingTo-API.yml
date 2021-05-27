@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'GoingTo-API'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0f3e966e3702408396aae667343c663c }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_95ff684991b04245a00f271c5108144a }}
         package: .
