@@ -16,7 +16,7 @@ namespace GoingTo_API.Persistence.Repositories
 
         public async Task<IEnumerable<City>> ListAsync()
         {
-            return await _context.Cities.Include(p=>p.Country.Locatable.LocatableImages).Include(p=>p.Locatable).ToListAsync();
+            return await _context.Cities.Include(p=>p.Country.Locatable.LocatableImages).Include(p=>p.Locatable.LocatableImages).ToListAsync();
         }
         public async Task<City> FindById(int id)
         {
