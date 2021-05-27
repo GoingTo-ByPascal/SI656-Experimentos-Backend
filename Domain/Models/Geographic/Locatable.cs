@@ -15,6 +15,8 @@ namespace GoingTo_API.Domain.Models
         public string Description { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
+        public string Name { get; set; }
+        public string BannerImage { get; set; }
         public List<Tip> Tips { get; set; }
         public List<Review> Reviews { get; set; }
         public List<Favourite> Favourites { get; set; }
@@ -22,6 +24,7 @@ namespace GoingTo_API.Domain.Models
         public Country Country { get; set; }
         public Place Place { get; set; }
         public List<LocatablePromo> LocatablePromos { get; set; }
+        public List<LocatableImage> LocatableImages { get; set; }
         public Estate Estate { get; set; }
         public LocatableType LocatableType { get ;set;}
         public int LocatableTypeId { get; set; }
