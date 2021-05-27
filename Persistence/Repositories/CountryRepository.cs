@@ -27,7 +27,7 @@ namespace GoingTo_API.Persistence.Repositories
 
             return await _context.Countries
                 .Where(p => p.FullName == fullname)
-                .Include(p=>p.Locatable)
+                .Include(p=>p.Locatable.LocatableImages)
                 .FirstAsync();
         }
         public async Task<IEnumerable<Country>> ListAsync()
@@ -38,7 +38,7 @@ namespace GoingTo_API.Persistence.Repositories
         public async Task<Country> ListByLocatableIdAsync(int locatableId) =>
             await _context.Countries
             .Where(p => p.LocatableId == locatableId)
-            .Include(p => p.Locatable)
+            .Include(p => p.Locatable.LocatableImages)
             .FirstAsync();
     }
 }
