@@ -21,14 +21,19 @@ namespace GoingTo_API.Persistence.Repositories
 
         public async Task<Estate> FindById(int id)
         {
-            return await _context.Estates.FindAsync(id);
+            return await _context.Estates
+                .Where(p=>p.Id== id)
+                .Include(p => p.Locatable.LocatableImages)
+                .FirstAsync();
         }
 
         
 
         public async Task<IEnumerable<Estate>> ListAsync()
         {
-            return await _context.Estates.ToListAsync();
+            return await _context.Estates
+                .Include(p=> p.Locatable.LocatableImages)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Estate>> ListByPartnerNameAsync(string partnerName)
@@ -36,6 +41,7 @@ namespace GoingTo_API.Persistence.Repositories
             partnerName = partnerName.ToProperCase();
             return await _context.Estates
                 .Where(p => p.Partner.Name == partnerName)
+                .Include(p=>p.Locatable.LocatableImages)
                 .ToListAsync();
         }
 

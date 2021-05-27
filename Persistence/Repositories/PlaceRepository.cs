@@ -22,21 +22,20 @@ namespace GoingTo_API.Persistence.Repositories
         {
             return await _context.Places
                 .Where(p => p.Id == id)
-                .Include(p => p.Locatable)
-                .Include(p => p.City.Locatable)
-                .Include(p => p.City.Country.Locatable)
+                .Include(p => p.Locatable.LocatableImages)
+                .Include(p => p.City.Locatable.LocatableImages)
+                .Include(p => p.City.Country.Locatable.LocatableImages)
                 .FirstAsync();
         }
 
         public async Task<IEnumerable<Place>> ListAsync()
         {
             return await _context.Places
-                .Include(p=>p.Locatable)
-                .Include(p=>p.City)
-                .Include(p=>p.City.Locatable)
+                .Include(p=>p.Locatable.LocatableImages)
+                .Include(p=>p.City.Locatable.LocatableImages)
+                .Include(p=>p.City.Country.Locatable.LocatableImages)
                 .ToListAsync();
         }
-
       
 
         public void Remove(Place place)
@@ -52,8 +51,9 @@ namespace GoingTo_API.Persistence.Repositories
         public async Task<IEnumerable<Place>> ListByCityIdAsync(int cityId) =>
             await _context.Places
                 .Where(p => p.CityId == cityId)
-                .Include(p=>p.Locatable)
-                .Include(p => p.City)
+                .Include(p=>p.Locatable.LocatableImages)
+                .Include(p => p.City.Locatable.LocatableImages)
+                .Include(p => p.City.Country.Locatable.LocatableImages)
                 .ToListAsync();
 
         public async Task<Place> FindByName(string name)
@@ -62,8 +62,9 @@ namespace GoingTo_API.Persistence.Repositories
 
             return await _context.Places
                 .Where(p => p.Name == name)
-                .Include(p =>p.City)
-                .Include(p =>p.Locatable)
+                .Include(p=>p.Locatable.LocatableImages)
+                .Include(p =>p.City.Locatable.LocatableImages)
+                .Include(p =>p.City.Country.Locatable.LocatableImages)
                 .FirstAsync();
         }
     }

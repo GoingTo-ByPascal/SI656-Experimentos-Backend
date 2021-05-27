@@ -83,6 +83,7 @@ namespace GoingTo_API
             services.AddScoped<ILocatablePromoRepository, LocatablePromoRepository>();
             services.AddScoped<IEstateRepository, EstateRepository>();
             services.AddScoped<IEstateServiceRepository, EstateServiceRepository>();
+            services.AddScoped<ILocatableImageRepository, LocatableImageRepository>();
 
 
             services.AddScoped<ILocatableService, LocatableService>();
@@ -115,7 +116,7 @@ namespace GoingTo_API
             services.AddScoped<ILocatablePromoService, LocatablePromoService>();
             services.AddScoped<IEstateService, EstateService>();
             services.AddScoped<IEstateServiceService, EstateServiceService>();
-
+            services.AddScoped<ILocatableImageService, LocatableImageService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
