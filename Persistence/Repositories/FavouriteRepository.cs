@@ -24,7 +24,7 @@ namespace GoingTo_API.Persistence.Repositories
 
         public async Task<IEnumerable<Favourite>> ListAsync()
         {
-            return await _context.Favourites.ToListAsync();
+            return await _context.Favourites.Include(p=>p.Locatable.LocatableImages).ToListAsync();
         }
 
         public void Remove(Favourite favourite)
@@ -36,7 +36,7 @@ namespace GoingTo_API.Persistence.Repositories
             return await _context.Favourites
                  .Where(p => p.UserId == userId)
                  .Include(p => p.User)
-                 .Include(p => p.Locatable)
+                 .Include(p => p.Locatable.LocatableImages)
                  .ToListAsync();
         }
         public async Task AssignFavourite(int userId, int locatableId)
