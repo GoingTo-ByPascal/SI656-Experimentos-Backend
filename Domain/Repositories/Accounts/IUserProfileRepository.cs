@@ -11,6 +11,7 @@ namespace GoingTo_API.Domain.Repositories.Accounts
         Task AddAsync(UserProfile profile); 
 
         Task<UserProfile> FindById(int id);
+        Task<UserProfile> FindByUserId(int userId);
         void Update(UserProfile profile);
 
         void Remove(UserProfile profile); 

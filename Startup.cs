@@ -55,7 +55,7 @@ namespace GoingTo_API
             });
             services.AddScoped<ILocatableRepository, LocatableRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserProfileRepository, ProfileRepository>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
             services.AddScoped<IWalletRepository, WalletRepository>();
             services.AddScoped<IUserAchievementRepository, UserAchievementRepository>();
             services.AddScoped<IAchievementRepository, AchievementRepository>();
@@ -88,7 +88,7 @@ namespace GoingTo_API
 
             services.AddScoped<ILocatableService, LocatableService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserProfileService, ProfileService>();
+            services.AddScoped<IUserProfileService, UserProfileService>();
             services.AddScoped<IWalletService, WalletService>();
             services.AddScoped<IUserAchievementService, UserAchievementService>();
             services.AddScoped<IAchievementService, AchievementService>();

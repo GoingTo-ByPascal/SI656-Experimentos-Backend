@@ -9,6 +9,7 @@ namespace GoingTo_API.Domain.Services.Accounts
     {
         Task<IEnumerable<UserProfile>> ListAsync();
         Task<ProfileResponse> FindById(int userProfileId);
+        Task<ProfileResponse> FindByUserId(int userId);
         Task<ProfileResponse> SaveAsync(UserProfile profile);
         Task<ProfileResponse> UpdateAsync(int id, UserProfile profile);
         Task<ProfileResponse> DeleteAsync(int id);

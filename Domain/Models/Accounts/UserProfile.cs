@@ -10,6 +10,7 @@ namespace GoingTo_API.Domain.Models.Accounts
         public string BirthDate { get; set; }
         public string Gender { get; set; }
         public string CreatedAt { get; set; }
+        public string ProfilePhoto { get; set; }
         public List<Review> Reviews { get; set; } = new List<Review>();
         public List<Tip> Tips { get; set; } = new List<Tip>();
         public int UserId { get; set; }

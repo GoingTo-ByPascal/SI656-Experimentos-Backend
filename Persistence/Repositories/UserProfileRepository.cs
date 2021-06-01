@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace GoingTo_API.Persistence.Repositories
 {
-    public class ProfileRepository : BaseRepository, IUserProfileRepository
+    public class UserProfileRepository : BaseRepository, IUserProfileRepository
     {
-        public ProfileRepository(AppDbContext context) : base(context) { }
+        public UserProfileRepository(AppDbContext context) : base(context) { }
 
         public async Task AddAsync(UserProfile profile)
         {
@@ -20,7 +20,7 @@ namespace GoingTo_API.Persistence.Repositories
         public async Task<IEnumerable<UserProfile>> ListAsync()
         {
             return await _context.UserProfiles
-                .Include(p => p.Country)
+                .Include(p => p.Country.Locatable.LocatableImages)
                 .ToListAsync();
         }
 
@@ -28,7 +28,7 @@ namespace GoingTo_API.Persistence.Repositories
         {
             return await _context.UserProfiles
                 .Where(p => p.Id == id)
-                .Include(p=>p.Country)
+                .Include(p=>p.Country.Locatable.LocatableImages)
                 .FirstAsync();
         }
 
@@ -40,6 +40,15 @@ namespace GoingTo_API.Persistence.Repositories
         public void Remove(UserProfile profile)
         {
             _context.UserProfiles.Remove(profile);
+        }
+
+        public async Task<UserProfile> FindByUserId(int userId)
+        {
+            return await _context.UserProfiles
+                .Where(p => p.UserId == userId)
+                .Include(p=> p.Country.Locatable.LocatableImages)
+                .FirstAsync();
+                
         }
     }
 }
