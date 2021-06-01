@@ -445,6 +445,7 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<UserProfile>().Property(p => p.Name).IsRequired().HasMaxLength(45);
             builder.Entity<UserProfile>().Property(p => p.Surname).IsRequired().HasMaxLength(45);
             builder.Entity<UserProfile>().Property(p => p.BirthDate);
+            builder.Entity<UserProfile>().Property(p => p.ProfilePhoto).HasMaxLength(200);
             builder.Entity<UserProfile>().Property(p => p.Gender).HasMaxLength(6);
             builder.Entity<UserProfile>().Property(p => p.CreatedAt);
             builder.Entity<UserProfile>().Property(p => p.CountryId).IsRequired();
