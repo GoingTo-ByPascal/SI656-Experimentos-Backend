@@ -5,9 +5,6 @@ namespace GoingTo_API.Resources
     public class SaveProfileResource
     {
         [Required]
-        public int UserId { get; set; }
-
-        [Required]
         [MaxLength(45)]
         public string Name { get; set; }
 

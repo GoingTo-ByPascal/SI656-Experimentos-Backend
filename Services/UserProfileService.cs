@@ -9,27 +9,27 @@ using System.Threading.Tasks;
 
 namespace GoingTo_API.Services
 {
-    public class ProfileService : IUserProfileService
+    public class UserProfileService : IUserProfileService
     {
-        private readonly IUserProfileRepository _profileRepository;
+        private readonly IUserProfileRepository _userProfileRepository;
         public readonly IUnitOfWork _unitOfWork;
 
-        public ProfileService(IUserProfileRepository profileRepository, IUnitOfWork unitOfWork)
+        public UserProfileService(IUserProfileRepository userProfileRepository, IUnitOfWork unitOfWork)
         {
-            _profileRepository = profileRepository;
+            _userProfileRepository = userProfileRepository;
             _unitOfWork = unitOfWork;
 
         }
         public async Task<IEnumerable<UserProfile>> ListAsync()
         {
-            return await _profileRepository.ListAsync();
+            return await _userProfileRepository.ListAsync();
         }
 
         public async Task<ProfileResponse> SaveAsync(UserProfile profile)
         {
             try
             {
-                await _profileRepository.AddAsync(profile);
+                await _userProfileRepository.AddAsync(profile);
                 await _unitOfWork.CompleteAsync();
 
                 return new ProfileResponse(profile);
@@ -42,13 +42,12 @@ namespace GoingTo_API.Services
 
         public async Task<ProfileResponse> UpdateAsync(int id, UserProfile profile)
         {
-            var existingProfile = await _profileRepository.FindById(id);
+            var existingProfile = await _userProfileRepository.FindById(id);
 
             if (existingProfile == null)
                 return new ProfileResponse("Profile not found");
 
             existingProfile.Name = profile.Name;
-            existingProfile.UserId = profile.UserId;
             existingProfile.Surname = profile.Surname;
             existingProfile.BirthDate = profile.BirthDate;
             existingProfile.Gender = profile.Gender;
@@ -57,7 +56,7 @@ namespace GoingTo_API.Services
 
             try
             {
-                _profileRepository.Update(existingProfile);
+                _userProfileRepository.Update(existingProfile);
                 await _unitOfWork.CompleteAsync();
 
                 return new ProfileResponse(existingProfile);
@@ -71,14 +70,14 @@ namespace GoingTo_API.Services
 
         public async Task<ProfileResponse> DeleteAsync(int id)
         {
-            var existingProfile = await _profileRepository.FindById(id);
+            var existingProfile = await _userProfileRepository.FindById(id);
 
             if (existingProfile == null)
                 return new ProfileResponse("Profile not found");
 
             try
             {
-                _profileRepository.Remove(existingProfile);
+                _userProfileRepository.Remove(existingProfile);
                 await _unitOfWork.CompleteAsync();
                 return new ProfileResponse(existingProfile);
             }
@@ -91,9 +90,17 @@ namespace GoingTo_API.Services
 
         public async Task<ProfileResponse> FindById(int userProfileId)
         {
-            var existingUserProfile = await _profileRepository.FindById(userProfileId);
+            var existingUserProfile = await _userProfileRepository.FindById(userProfileId);
             if (existingUserProfile == null)
                 return new ProfileResponse("Profile not found");
+            return new ProfileResponse(existingUserProfile);
+        }
+
+        public async Task<ProfileResponse> FindByUserId(int userId)
+        {
+            var existingUserProfile = await _userProfileRepository.FindByUserId(userId);
+            if (existingUserProfile == null)
+                return new ProfileResponse(String.Format("Profile with userId {0} not found",userId));
             return new ProfileResponse(existingUserProfile);
         }
     }
