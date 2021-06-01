@@ -55,11 +55,11 @@ namespace GoingTo_API.Controllers
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> PostAsync([FromBody] SaveProfileResource resource)
+        public async Task<IActionResult> PostAsync([FromBody] SaveUserProfileResource resource)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages()); 
-            var profile = _mapper.Map<SaveProfileResource, GoingTo_API.Domain.Models.Accounts.UserProfile>(resource);
+            var profile = _mapper.Map<SaveUserProfileResource, GoingTo_API.Domain.Models.Accounts.UserProfile>(resource);
             var result = await _profileService.SaveAsync(profile); 
 
             if (!result.Success)
@@ -77,9 +77,9 @@ namespace GoingTo_API.Controllers
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveProfileResource resource)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveUserProfileResource resource)
         {
-            var profile = _mapper.Map<SaveProfileResource, GoingTo_API.Domain.Models.Accounts.UserProfile>(resource);
+            var profile = _mapper.Map<SaveUserProfileResource, GoingTo_API.Domain.Models.Accounts.UserProfile>(resource);
             var result = await _profileService.UpdateAsync(id, profile);
 
             if (!result.Success)
