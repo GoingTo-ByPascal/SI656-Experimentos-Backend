@@ -1,4 +1,5 @@
-﻿using GoingTo_API.Domain.Services.Accounts;
+﻿using GoingTo_API.Domain.Models.Accounts;
+using GoingTo_API.Domain.Services.Accounts;
 using GoingTo_API.Extensions;
 using GoingTo_API.Resources;
 using Microsoft.AspNetCore.Authorization;
@@ -32,6 +33,20 @@ namespace GoingTo_API.Controllers
             var resource = _mapper.Map<IEnumerable<GoingTo_API.Domain.Models.Accounts.UserProfile>, IEnumerable<UserProfileResource>>(profiles);
             return resource;
         }
+        /// <summary>
+        /// returns the requested user profile  by user id
+        /// </summary>
+        /// <param name="userId">the user id</param>
+        /// <returns></returns>
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserProfileByUserIdAsync(int userId)
+        {
+            var result = await _profileService.FindByUserId(userId);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            var userProfileResource = _mapper.Map<UserProfile, UserProfileResource>(result.Resource);
+            return Ok(userProfileResource);
+        }
 
 
         /// <summary>
@@ -58,11 +73,11 @@ namespace GoingTo_API.Controllers
         /// <summary>
         /// modify a profile in the system
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The user id</param>
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveProfileResource resource)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveProfileResource resource)
         {
             var profile = _mapper.Map<SaveProfileResource, GoingTo_API.Domain.Models.Accounts.UserProfile>(resource);
             var result = await _profileService.UpdateAsync(id, profile);
