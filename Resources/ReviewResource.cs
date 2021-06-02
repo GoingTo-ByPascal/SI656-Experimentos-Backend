@@ -7,6 +7,7 @@ namespace GoingTo_API.Resources
 {
     public class ReviewResource
     {
+        public int Id { get; set; }
         public string Comment { get; set; }
         public float Stars { get; set; }
         public string ReviewedAt { get; set; }
