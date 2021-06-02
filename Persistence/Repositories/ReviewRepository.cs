@@ -30,7 +30,7 @@ namespace GoingTo_API.Persistence.Repositories
         {
             return await _context.Reviews
                 .Where(p=>p.Id == id)
-                .Include(p=>p.UserProfile.Country)
+                .Include(p=>p.UserProfile.Country.Locatable.LocatableImages)
                 .FirstAsync();
         }
 
@@ -43,7 +43,7 @@ namespace GoingTo_API.Persistence.Repositories
             return await _context.Reviews
                 .Where(p => p.LocatableId == locatableId)
                 .Include(p => p.Locatable)
-                .Include(p=>p.UserProfile.Country)
+                .Include(p=>p.UserProfile.Country.Locatable.LocatableImages)
                 .ToListAsync();
         }
 
@@ -51,7 +51,7 @@ namespace GoingTo_API.Persistence.Repositories
         {
             return await _context.Reviews
                 .Where(p => p.UserProfileId == userProfileId)
-                .Include(p=> p.UserProfile.Country)
+                .Include(p=> p.UserProfile.Country.Locatable.LocatableImages)
                 .Include(p=>p.Locatable)
                 .ToListAsync();
         }
