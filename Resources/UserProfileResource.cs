@@ -7,6 +7,7 @@ namespace GoingTo_API.Resources
 {
     public class UserProfileResource
     {
+        public int Id { get; set; }
         public int UserId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
