@@ -24,6 +24,7 @@ namespace GoingTo_API.Services
         {
             try
             {
+                review.ReviewedAt = DateTime.Now.ToString("yyyy-MM-dd");
                 await _reviewRepository.AddAsync(review);
                 await _unitOfWork.CompleteAsync();
 
@@ -44,6 +45,7 @@ namespace GoingTo_API.Services
 
             existingReview.Comment = review.Comment;
             existingReview.Stars = review.Stars;
+            existingReview.ReviewedAt = DateTime.Now.ToString("yyyy-MM-dd");
 
             try
             {
