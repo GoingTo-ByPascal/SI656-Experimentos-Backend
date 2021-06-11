@@ -29,6 +29,7 @@ namespace GoingTo_API.Services
         {
             try
             {
+                profile.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd");
                 await _userProfileRepository.AddAsync(profile);
                 await _unitOfWork.CompleteAsync();
 
