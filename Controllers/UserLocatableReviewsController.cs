@@ -5,7 +5,6 @@ using GoingTo_API.Domain.Services.Accounts;
 using GoingTo_API.Domain.Services.Interactions;
 using GoingTo_API.Extensions;
 using GoingTo_API.Resources;
-using GoingTo_API.Resources.UpdateResource;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -71,13 +70,13 @@ namespace GoingTo_API.Controllers
         /// <param name="resource"></param>
         /// <returns></returns>
         [HttpPut("{reviewId}")]
-        public async Task<IActionResult> PutAsync(int locatableId, int reviewId, [FromBody] UpdateReviewResource resource)
+        public async Task<IActionResult> PutAsync(int locatableId, int reviewId, [FromBody] SaveReviewResource resource)
         {
             var existingLocatable = await _locatableService.GetByIdAsync(locatableId);
             if (!existingLocatable.Success)
                 return BadRequest(existingLocatable.Message);
 
-            var review = _mapper.Map<UpdateReviewResource, Review>(resource);
+            var review = _mapper.Map<SaveReviewResource, Review>(resource);
             var result = await _reviewService.UpdateAsync(reviewId, review);
 
             if (!result.Success)
