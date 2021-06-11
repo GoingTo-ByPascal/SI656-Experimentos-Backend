@@ -20,8 +20,6 @@ namespace GoingTo_API.Resources
         [MaxLength(6)]
         public string Gender { get; set; }
 
-        public string CreatedAt { get; set; }
-
         [Required]
         public int CountryId { get; set; }
     }

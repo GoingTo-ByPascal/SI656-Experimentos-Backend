@@ -51,7 +51,7 @@ namespace GoingTo_API.Services
             existingProfile.Surname = profile.Surname;
             existingProfile.BirthDate = profile.BirthDate;
             existingProfile.Gender = profile.Gender;
-            existingProfile.CreatedAt = profile.CreatedAt;
+            existingProfile.CreatedAt = DateTime.Now.ToString("yyyy-MM-dd");
             existingProfile.CountryId = profile.CountryId;
 
             try

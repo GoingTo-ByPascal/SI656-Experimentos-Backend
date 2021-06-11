@@ -9,9 +9,8 @@ namespace GoingTo_API.Resources
     public class SaveReviewResource
     {
         [Required]
-        [MaxLength(45)]
+        [MaxLength(500)]
         public string Comment { get; set; }
         public int Stars { get; set; }
-        public string ReviewedAt { get; set; }
     }
 }
