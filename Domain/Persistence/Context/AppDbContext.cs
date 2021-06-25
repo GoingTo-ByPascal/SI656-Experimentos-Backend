@@ -57,6 +57,7 @@ namespace GoingTo_API.Domain.Persistence.Context
             builder.Entity<Achievement>().Property(p => p.Name).IsRequired().HasMaxLength(45);
             builder.Entity<Achievement>().Property(p => p.Text).IsRequired().HasMaxLength(100);
             builder.Entity<Achievement>().Property(p => p.Points).HasDefaultValue<int>(null);
+            builder.Entity<Achievement>().Property(p => p.Badge).IsRequired().HasMaxLength(500);
 
 
             //Benefit Entity

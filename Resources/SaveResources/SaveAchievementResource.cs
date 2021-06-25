@@ -16,5 +16,7 @@ namespace GoingTo_API.Resources
         public string Text { get; set; }
         [Required]
         public int Points { get; set; }
+        [Required]
+        public string Badge { get; set; }
     }
 }
